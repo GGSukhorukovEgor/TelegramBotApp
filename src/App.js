@@ -16,7 +16,8 @@ function App() {
 
   const onSendData = useCallback(()=>{
     // const data = date;
-    tg.sendData(tg);
+    const data = JSON.stringify(tg);
+    tg.sendData(data);
   }, [date])
 
   useEffect(()=>{
