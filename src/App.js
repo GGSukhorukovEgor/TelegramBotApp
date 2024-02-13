@@ -21,12 +21,12 @@ function App() {
     tg.sendData(data);
   }, [date])
 
-  // useEffect(()=>{
-  //   tg.onEvent('sendData', onSendData)
-  //   return () => {
-  //     tg.offEvent('sendData', onSendData)
-  //   }
-  // }, [onSendData])
+  useEffect(()=>{
+    tg.onEvent('sendData', onSendData)
+    return () => {
+      tg.offEvent('sendData', onSendData)
+    }
+  }, [onSendData])
 
   return (
     <div className="App">
