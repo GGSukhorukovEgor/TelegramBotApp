@@ -15,17 +15,18 @@ function App() {
   }
 
   const onSendData = useCallback(()=>{
-    // const data = date;
-    const data = JSON.stringify(tg);
+   const data = date;
+    // const t = window.Telegram;
+    // const data = JSON.stringify(t);
     tg.sendData(data);
   }, [date])
 
-  useEffect(()=>{
-    tg.onEvent('sendData', onSendData)
-    return () => {
-      tg.offEvent('sendData', onSendData)
-    }
-  }, [onSendData])
+  // useEffect(()=>{
+  //   tg.onEvent('sendData', onSendData)
+  //   return () => {
+  //     tg.offEvent('sendData', onSendData)
+  //   }
+  // }, [onSendData])
 
   return (
     <div className="App">
