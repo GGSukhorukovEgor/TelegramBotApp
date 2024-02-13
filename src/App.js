@@ -16,15 +16,15 @@ function App() {
 
   const onSendData = useCallback(()=>{
     const data = date;
-    tg.sendData(JSON.stringify(data));
-  })
+    tg.sendData(data);
+  }, [date])
 
   useEffect(()=>{
     tg.onEvent('sendData', onSendData)
     return () => {
       tg.offEvent('sendData', onSendData)
     }
-  }, [])
+  }, [onSendData])
 
   return (
     <div className="App">
