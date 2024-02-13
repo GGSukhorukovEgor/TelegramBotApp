@@ -15,8 +15,8 @@ function App() {
   }
 
   const onSendData = useCallback(()=>{
-    const data = date;
-    tg.sendData(data);
+    // const data = date;
+    tg.sendData(tg);
   }, [date])
 
   useEffect(()=>{
