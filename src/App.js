@@ -14,6 +14,12 @@ function App() {
     tg.close();
   }
 
+  const dateInput = document.getElementById('dateInput');
+  dateInput.addEventListener('input', function(event) {
+    const selectedDate = event.target.value;
+    alert(`Выбрана дата: ${selectedDate}`);
+});
+
   const onSendData = useCallback(()=>{
    const data = date;
     // const t = window.Telegram;
@@ -30,9 +36,9 @@ function App() {
 
   return (
     <div className="App">
-       <div>
-        <input type='date' onChange={e => setDate(e.target.value)}></input>
-        <button onClick={onSendData}>Отправить</button>
+       <div class="calendar-container" id="calendarContainer">
+        <input type='date' id='dateInput' onChange={e => setDate(e.target.value)}></input>
+        {/* <button onClick={onSendData}>Отправить</button> */}
        </div>
        <div>
         <button onClick={onClose}>Закрыть</button>
