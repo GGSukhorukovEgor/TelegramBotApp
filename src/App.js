@@ -28,13 +28,6 @@ function App() {
     tg.sendData(data);
   }, [])
 
-  useEffect(()=>{
-    tg.onEvent('sendData', onSendData)
-    return () => {
-      tg.offEvent('sendData', onSendData)
-    }
-  }, [onSendData])
-
   return (
     <div className="App">
        <div>
