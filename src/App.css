@@ -25,3 +25,8 @@ input[type="date"] {
   height: 40px; /* Любая высота, которая вам нужна */
   font-size: 16px; /* Любой размер шрифта, который вам нужен */
 }
+
+.button{
+  color: var(--tg-theme-button-text-color);
+  background: var(--tg-theme-button-color);
+}
