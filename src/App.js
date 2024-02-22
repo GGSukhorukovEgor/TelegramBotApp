@@ -26,7 +26,7 @@ function App() {
   const onSendData = useCallback(()=>{
    const data = date;
     tg.sendData(data);
-  }, [])
+  }, [date])
 
   return (
     <div className="App">
