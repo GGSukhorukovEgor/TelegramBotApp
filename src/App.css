@@ -21,12 +21,24 @@ body{
 }
 
 input[type="date"] {
-  width: 200px; /* Любая ширина, которая вам нужна */
-  height: 40px; /* Любая высота, которая вам нужна */
-  font-size: 16px; /* Любой размер шрифта, который вам нужен */
+  width: 200px; 
+  height: 40px; 
+  font-size: 16px; 
 }
 
-.button{
+.buttonYesterday{
   color: var(--tg-theme-button-text-color);
   background: var(--tg-theme-button-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonToday{
+  color: var(--tg-theme-button-text-color);
+  background: var(--tg-theme-button-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  float: inline-end;
 }

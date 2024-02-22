@@ -40,8 +40,8 @@ function App() {
     <div className="App">
       <div>
         <div>
-          <button onClick={onClickToday}>Сегодня</button>
-          <button onClick={onClickYesterday}>Вчера</button>
+        <button className='buttonYesterday' onClick={onClickYesterday}>Вчера</button>
+        <button className='buttonToday' onClick={onClickToday}>Сегодня</button>
         </div>
         <input
           type='date'
