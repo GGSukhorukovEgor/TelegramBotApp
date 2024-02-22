@@ -13,9 +13,15 @@ function App() {
       text: 'Отправить'
     })
     tg.MainButton.show();
-    tg.MainButton.onClick(onSendData);
 
   }, [])
+
+  useEffect(() => {
+    tg.onEvent('mainButtonClicked', onSendData)
+    return() => {
+      tg.offevent('mainButtonClicked', onSendData)
+    }
+  })
 
   const onClose = () => {
     tg.close();
