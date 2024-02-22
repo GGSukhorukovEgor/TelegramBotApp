@@ -21,7 +21,7 @@ function App() {
     return() => {
       tg.offevent('mainButtonClicked', onSendData)
     }
-  })
+  }, [])
 
   const onClose = () => {
     tg.close();
