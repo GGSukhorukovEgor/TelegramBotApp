@@ -7,16 +7,12 @@ function App() {
   const [date, setDate] = React.useState(undefined);
 
 
-  useEffect(() =>{
+  useEffect(() => {
     tg.ready();
     tg.MainButton.setParams({
       text: 'Отправить'
     })
     tg.MainButton.show();
-
-  }, [])
-
-  useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData)
     return() => {
       tg.offevent('mainButtonClicked', onSendData)
