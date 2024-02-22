@@ -27,16 +27,16 @@ input[type="date"] {
 }
 
 .buttonYesterday{
-  color: var(--tg-theme-button-text-color);
-  background: var(--tg-theme-button-color);
+  color: wheat;
+  background: red;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .buttonToday{
-  color: var(--tg-theme-button-text-color);
-  background: var(--tg-theme-button-color);
+  color: wheat;
+  background: green;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
