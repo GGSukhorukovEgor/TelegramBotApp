@@ -15,7 +15,7 @@ function App() {
     tg.MainButton.show();
     tg.onEvent('mainButtonClicked', onSendData)
     return() => {
-      tg.offevent('mainButtonClicked', onSendData)
+      tg.offEvent('mainButtonClicked', onSendData)
     }
   }, [])
 
