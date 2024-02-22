@@ -10,7 +10,6 @@ function App() {
     tg.MainButton.setParams({
       text: 'Отправить'
     });
-    tg.MainButton.show();
   }, []);
 
   const onSendData = useCallback(() => {
