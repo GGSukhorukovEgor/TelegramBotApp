@@ -13,11 +13,14 @@ function App() {
       text: 'Отправить'
     })
     tg.MainButton.show();
+  }, [])
+
+  useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData)
     return() => {
       tg.offEvent('mainButtonClicked', onSendData)
     }
-  }, [])
+  }, [onSendData])
 
   const onClose = () => {
     tg.close();
@@ -26,7 +29,7 @@ function App() {
   const onSendData = useCallback(()=>{
    const data = date;
     tg.sendData(data);
-  }, [])
+  }, [date])
 
   return (
     <div className="App">
