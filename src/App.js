@@ -5,12 +5,16 @@ const tg = window.Telegram.WebApp;
 function App() {
 
   const [date, setDate] = React.useState(undefined);
-  
-  tg.MainButton.show();
-  tg.MainButton.onClick(onSendData);
+
 
   useEffect(() =>{
     tg.ready();
+    tg.MainButton.setParams({
+      text: 'Отправить'
+    })
+    tg.MainButton.show();
+    tg.MainButton.onClick(onSendData);
+
   }, [])
 
   const onClose = () => {
