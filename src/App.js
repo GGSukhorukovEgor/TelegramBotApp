@@ -4,7 +4,7 @@ import './App.css';
 const tg = window.Telegram.WebApp;
 function App() {
 
-  const [date, setDate] = React.useState(undefined);
+  const [date, setDate] = React.useState(Date.now());
 
 
   useEffect(() => {
@@ -27,18 +27,15 @@ function App() {
     }
   }, [onSendData])
 
-  const onClose = () => {
-    tg.close();
-  }
+  // const onClose = () => {
+  //   tg.close();
+  // }
 
   return (
     <div className="App">
        <div>
         <input type='date' onChange={e => setDate(e.target.value)}></input>
-       </div>
-       <div>
-        <button onClick={onClose}>Закрыть</button>
-       </div>       
+       </div>     
     </div>
   );
 }
