@@ -1,41 +1,55 @@
-import { useCallback, useEffect } from 'react';
-import React, { } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import './App.css';
 const tg = window.Telegram.WebApp;
+
 function App() {
-
-  const [date, setDate] = React.useState(Date.now());
-
+  const [date, setDate] = useState(undefined);
 
   useEffect(() => {
     tg.ready();
     tg.MainButton.setParams({
       text: 'Отправить'
-    })
+    });
     tg.MainButton.show();
-  }, [])
+  }, []);
 
-  const onSendData = useCallback(()=>{
+  const onSendData = useCallback(() => {
     const data = date;
-     tg.sendData(data);
-   }, [date])
+    tg.sendData(data);
+  }, [date]);
 
   useEffect(() => {
-    tg.onEvent('mainButtonClicked', onSendData)
-    return() => {
-      tg.offEvent('mainButtonClicked', onSendData)
-    }
-  }, [onSendData])
+    tg.onEvent('mainButtonClicked', onSendData);
+    return () => {
+      tg.offEvent('mainButtonClicked', onSendData);
+    };
+  }, [onSendData]);
 
-  // const onClose = () => {
-  //   tg.close();
-  // }
+  const onClickToday = () => {
+    const today = new Date().toISOString().slice(0, 10);
+    setDate(today);
+    tg.MainButton.show();
+  };
+
+  const onClickYesterday = () => {
+    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+    setDate(yesterday);
+    tg.MainButton.show();
+  };
 
   return (
     <div className="App">
-       <div>
-        <input type='date' onChange={e => setDate(e.target.value)}></input>
-       </div>     
+      <div>
+        <div>
+          <button onClick={onClickToday}>Сегодня</button>
+          <button onClick={onClickYesterday}>Вчера</button>
+        </div>
+        <input
+          type='date'
+          value={date}
+          onChange={e => { setDate(e.target.value); tg.MainButton.show(); }}
+        />
+      </div>
     </div>
   );
 }
