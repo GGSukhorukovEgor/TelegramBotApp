@@ -15,6 +15,11 @@ function App() {
     tg.MainButton.show();
   }, [])
 
+  const onSendData = useCallback(()=>{
+    const data = date;
+     tg.sendData(data);
+   }, [date])
+
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData)
     return() => {
@@ -25,11 +30,6 @@ function App() {
   const onClose = () => {
     tg.close();
   }
-
-  const onSendData = useCallback(()=>{
-   const data = date;
-    tg.sendData(data);
-  }, [date])
 
   return (
     <div className="App">
