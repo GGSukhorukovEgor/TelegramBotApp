@@ -11,7 +11,7 @@ const TimesheetList = () => {
     useEffect(() => {
         let timesheetsJson = atob(searchParams.get("data"));
         setTimesheetList(JSON.parse(timesheetsJson));
-        }, []);
+        }, [setTimesheetList]);
 
     const onSelect = (timesheet) => {
         console.log(timesheet);
