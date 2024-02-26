@@ -16,7 +16,7 @@ const TimesheetList = () => {
         }, [setTimesheetList, setSearchParams, searchParams]);
 
     const onSelect = (timesheet) => {
-        tg.sendData(timesheet);
+        tg.sendData(JSON.stringify(timesheet));
     }
 
     return(
