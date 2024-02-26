@@ -39,16 +39,14 @@ const SelectDate = () => {
     };
     
     return(
-        <div className='selectDate' >
-            <div>
-                <button className='buttonYesterday' onClick={onClickYesterday}>Вчера</button>
-                <button className='buttonToday' onClick={onClickToday}>Сегодня</button>
-            </div>
-                <input
+        <div className='selectDate'>
+            <button className='buttonYesterday' onClick={onClickYesterday}>Вчера</button>
+            <input
                 type='date'
                 value={date}
                 onChange={e => { setDate(e.target.value); tg.MainButton.show(); }}
-                />
+            />
+            <button className='buttonToday' onClick={onClickToday}>Сегодня</button>
         </div>
     );
 };

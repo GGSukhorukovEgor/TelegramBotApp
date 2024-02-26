@@ -1,4 +1,4 @@
-.selectDate {
+  .selectDate {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,12 +13,13 @@
     width: 200px; 
     height: 40px; 
     font-size: 16px; 
+    margin-inline: 10px;
   }
   
   .buttonYesterday{
     color: wheat;
     background: red;
-    padding: 5px 10px;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
   }
@@ -26,7 +27,7 @@
   .buttonToday{
     color: wheat;
     background: green;
-    padding: 5px 10px;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     float: inline-end;

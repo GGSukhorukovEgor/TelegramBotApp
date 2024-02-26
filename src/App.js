@@ -1,15 +1,15 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import './App.css';
-import {Route, Routers} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import SelectDate from './components/SelectDate/SelectDate';
 
 function App() {
 
   return (
     <div className="App">
-      <Routers>
+      <Routes>
         <Route path={'selectDate'} element={<SelectDate />} />
-      </Routers>
+      </Routes>
     </div>
   );
 }
