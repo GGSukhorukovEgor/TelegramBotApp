@@ -8,37 +8,3 @@ body{
   background: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
 }
-
-.App {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.input-container {
-  text-align: center;
-}
-
-input[type="date"] {
-  width: 200px; 
-  height: 40px; 
-  font-size: 16px; 
-}
-
-.buttonYesterday{
-  color: wheat;
-  background: red;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.buttonToday{
-  color: wheat;
-  background: green;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  float: inline-end;
-}
