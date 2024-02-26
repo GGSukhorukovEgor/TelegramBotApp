@@ -2,9 +2,11 @@ import {useEffect, useState} from 'react';
 import { useSearchParams } from 'react-router-dom';
 import TimesheetItem from '../TimesheetItem/TimesheetItem'
 import './TimesheetList.css';
+import { useTelegram } from '../../hooks/useTelegram';
 
 const TimesheetList = () => {
 
+    const {tg} = useTelegram();
     const [searchParams, setSearchParams] = useSearchParams();
     const [timesheetList, setTimesheetList] = useState(undefined);
 
@@ -14,7 +16,7 @@ const TimesheetList = () => {
         }, [setTimesheetList, setSearchParams, searchParams]);
 
     const onSelect = (timesheet) => {
-        console.log(timesheet);
+        tg.sendData(timesheet);
     }
 
     return(

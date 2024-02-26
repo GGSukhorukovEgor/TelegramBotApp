@@ -15,8 +15,7 @@ const SelectDate = () => {
     }, [tg]);
 
     const onSendData = useCallback(() => {
-    const data = date;
-    tg.sendData(data);
+        tg.sendData(date);
     }, [tg, date]);
 
     useEffect(() => {
