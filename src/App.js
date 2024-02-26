@@ -3,7 +3,7 @@ import './App.css';
 import { useTelegram } from './hooks/useTelegram';
 
 function App() {
-  const {tg, onToggleMainButton} = useTelegram();
+  const {tg} = useTelegram();
   const [date, setDate] = useState(undefined);
 
   useEffect(() => {
@@ -47,7 +47,7 @@ function App() {
         <input
           type='date'
           value={date}
-          onChange={e => { setDate(e.target.value); onToggleMainButton; }}
+          onChange={e => { setDate(e.target.value); tg.MainButton.show(); }}
         />
       </div>
     </div>
