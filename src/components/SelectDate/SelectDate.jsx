@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import './SelectDate.css';
-import { useTelegram } from './hooks/useTelegram';
+import { useTelegram } from '../../hooks/useTelegram';
 
 const SelectDate = () => {
 
