@@ -7,9 +7,6 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        asd
-      </div>
       <Routes>
         <Route path={'selectDate'} element={<SelectDate />} />
       </Routes>
