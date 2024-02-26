@@ -11,19 +11,19 @@ function App() {
     tg.MainButton.setParams({
       text: 'Отправить'
     });
-  }, []);
+  }, [tg]);
 
   const onSendData = useCallback(() => {
     const data = date;
     tg.sendData(data);
-  }, [date]);
+  }, [tg, date]);
 
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
     return () => {
       tg.offEvent('mainButtonClicked', onSendData);
     };
-  }, [onSendData]);
+  }, [tg, onSendData]);
 
   const onClickToday = () => {
     const today = new Date().toISOString().slice(0, 10);
