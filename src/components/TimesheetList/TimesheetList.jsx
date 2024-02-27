@@ -44,9 +44,7 @@ const TimesheetList = () => {
         const confirmAndSendData = () => {
             const isConfirmed = window.confirm('Вы уверены, что хотите удалить выбранные timesheets?');
             if (isConfirmed) {
-                selectedTimesheets.forEach(timesheet => {
-                    tg.sendData(JSON.stringify(timesheet));
-                });
+                tg.sendData(JSON.stringify(selectedTimesheets));
                 setSelectedTimesheets([]);
             }
         };
