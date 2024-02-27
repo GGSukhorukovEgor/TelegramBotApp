@@ -13,26 +13,24 @@ const TimesheetList = () => {
     useEffect(() => {
         let timesheetsJson = atob(searchParams.get("data"));
         setTimesheetList(JSON.parse(timesheetsJson));
-    }, [setTimesheetList, setSearchParams, searchParams]);
 
-    const confirmAndSendData = (timesheet) => {
-        const isConfirmed = window.confirm('Вы уверены, что хотиде удалить timesheet?');
+        const confirmAndSendData = (timesheet) => {
+            const isConfirmed = window.confirm('Вы уверены, что хотитек удалить timesheet?');
 
-        if (isConfirmed) {
-            tg.sendData(JSON.stringify(timesheet));
-        }
-    };
+            if (isConfirmed) {
+                tg.sendData(JSON.stringify(timesheet));
+            }
+        };
 
-    const onSelect = (timesheet) => {
-        setSelectedTimesheet(timesheet);
-    };
-
-    useEffect(() => {
         if (selectedTimesheet) {
             confirmAndSendData(selectedTimesheet);
             setSelectedTimesheet(null);
         }
-    }, [selectedTimesheet, confirmAndSendData]);
+    }, [setTimesheetList, setSearchParams, searchParams, tg, selectedTimesheet]);
+
+    const onSelect = (timesheet) => {
+        setSelectedTimesheet(timesheet);
+    };
 
     return (
         <div className='timesheet_list'>
