@@ -46,13 +46,11 @@ const SelectDate = () => {
     const onClickToday = () => {
         const today = new Date().toISOString().slice(0, 10);
         setDate(today);
-        tg.MainButton.show();
         };
     
     const onClickYesterday = () => {
         const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
         setDate(yesterday);
-        tg.MainButton.show();
         };
 
     return (
