@@ -5,20 +5,6 @@
     height: 100vh;
     flex-direction: column;
   }
-  
-  .days-btn{
-    display: flex;
-    margin-top: 1%;
-  }
-
-  .day-btn{
-    margin: 5px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background: var(--tg-theme-button-color);
-    color: var(--tg-theme-button-text-color); 
-    cursor: pointer;
-  }
 
   .input-container {
     text-align: center;
@@ -31,20 +17,35 @@
     margin-inline: 10px;
   }
   
-  .buttonYesterday{
+  .days-btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.day-btn {
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color); 
+    cursor: pointer;
+}
+
+.buttonYesterday {
     color: black;
     background: orange;
     margin: 5px;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .buttonToday{
+}
+
+.buttonToday {
     color: wheat;
     background: green;
     margin: 5px;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-  }
+}
