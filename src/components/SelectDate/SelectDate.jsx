@@ -46,11 +46,13 @@ const SelectDate = () => {
     const onClickToday = () => {
         const today = new Date().toISOString().slice(0, 10);
         setDate(today);
+        tg.MainButton.show();
         };
     
     const onClickYesterday = () => {
         const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
         setDate(yesterday);
+        tg.MainButton.show();
         };
 
     return (
@@ -63,7 +65,7 @@ const SelectDate = () => {
             <div className='days-btn'>
                  {dates.map((date) => {
                      return (
-                         <button className='day-btn' onClick={() => setDate(date.toISOString().slice(0, 10))}>
+                         <button className='day-btn' onClick={() => {setDate(date.toISOString().slice(0, 10)); tg.MainButton.show();}}>
                              {dateToString(date)}
                          </button>
                      );
