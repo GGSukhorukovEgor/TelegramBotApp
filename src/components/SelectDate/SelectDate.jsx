@@ -5,7 +5,7 @@ import { useTelegram } from '../../hooks/useTelegram';
 const SelectDate = () => {
     const { tg } = useTelegram();
     const [date, setDate] = useState(undefined);
-
+    
     useEffect(() => {
         tg.ready();
         tg.MainButton.setParams({
@@ -55,6 +55,40 @@ const SelectDate = () => {
         tg.MainButton.show();
         };
 
+    const calculateMaxButtonSize = () => {
+        const buttons = document.querySelectorAll('.day-btn');
+        let maxWidth = 0;
+        let maxHeight = 0;
+        buttons.forEach(button => {
+        const width = button.offsetWidth;
+        const height = button.offsetHeight;
+        if (width > maxWidth) {
+            maxWidth = width;
+        }
+        if (height > maxHeight) {
+            maxHeight = height;
+        }
+        });
+        return { width: maxWidth, height: maxHeight };
+    };
+
+    const setButtonSizes = useCallback(() => {
+        const buttons = document.querySelectorAll('.day-btn');
+        const maxButtonSize = calculateMaxButtonSize();
+        buttons.forEach(button => {
+        button.style.width = `${maxButtonSize.width}px`;
+        button.style.height = `${maxButtonSize.height}px`;
+        });
+    }, []);
+
+    useEffect(() => {
+        setButtonSizes();
+        window.addEventListener('resize', setButtonSizes);
+        return () => {
+        window.removeEventListener('resize', setButtonSizes);
+        };
+    }, [setButtonSizes]);
+
     return (
         <div className='selectDate'>
             <input
@@ -70,8 +104,8 @@ const SelectDate = () => {
                          </button>
                      );
                  })}
-                 <button className='buttonYesterday' onClick={onClickYesterday}>Вчера</button>
-                 <button className='buttonToday' onClick={onClickToday}>Сегодня</button>
+                 <button className='day-btn' onClick={onClickYesterday}>Вчера</button>
+                 <button className='day-btn' onClick={onClickToday}>Сегодня</button>
              </div>
         </div>
     );

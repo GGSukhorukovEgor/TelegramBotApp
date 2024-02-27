@@ -2,6 +2,9 @@
     border: 1px solid #CCCCCC;
     padding: 10px;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .select-btn{
@@ -11,4 +14,13 @@
     border-radius: 5px;
     cursor: pointer;
     float: inline-end;
+}
+
+.timesheet_info{
+    display: flex;
+    flex-direction: column;
+}
+
+.timesheet_checkbox{
+    display: flex;
 }

@@ -31,21 +31,3 @@
     color: var(--tg-theme-button-text-color); 
     cursor: pointer;
 }
-
-.buttonYesterday {
-    color: black;
-    background: orange;
-    margin: 5px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.buttonToday {
-    color: wheat;
-    background: green;
-    margin: 5px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
