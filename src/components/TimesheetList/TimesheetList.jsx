@@ -26,7 +26,8 @@ const TimesheetList = () => {
     }, [tg, selectedTimesheets]);
 
     useEffect(() => {
-        let timesheetsJson = atob(searchParams.get("data"));
+        let timesheetsJson = decodeURIComponent(searchParams.get("data"), 'utf-8');
+
         setTimesheetList(JSON.parse(timesheetsJson));
     }, [searchParams]);
 
