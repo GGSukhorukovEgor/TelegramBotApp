@@ -6,7 +6,7 @@ import { useTelegram } from '../../hooks/useTelegram';
 
 const TimesheetList = () => {
     const { tg } = useTelegram();
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const [timesheetList, setTimesheetList] = useState([]);
     const [selectedTimesheets, setSelectedTimesheets] = useState([]);
 
@@ -28,7 +28,7 @@ const TimesheetList = () => {
     useEffect(() => {
         let timesheetsJson = atob(searchParams.get("data"));
         setTimesheetList(JSON.parse(timesheetsJson));
-    }, [searchParams, setTimesheetList]);
+    }, [searchParams]);
 
     const handleCheckboxChange = (timesheet) => {
         setSelectedTimesheets(prevSelected => {
@@ -40,22 +40,23 @@ const TimesheetList = () => {
         });
     };
 
-    const confirmAndSendData = () => {
-        const isConfirmed = window.confirm('Вы уверены, что хотите удалить выбранные timesheets?');
-        if (isConfirmed) {
-            selectedTimesheets.forEach(timesheet => {
-                tg.sendData(JSON.stringify(timesheet));
-            });
-            setSelectedTimesheets([]);
-        }
-    };
-
     useEffect(() => {
+        const confirmAndSendData = () => {
+            const isConfirmed = window.confirm('Вы уверены, что хотите удалить выбранные timesheets?');
+            if (isConfirmed) {
+                selectedTimesheets.forEach(timesheet => {
+                    tg.sendData(JSON.stringify(timesheet));
+                });
+                setSelectedTimesheets([]);
+            }
+        };
+
         tg.onEvent('mainButtonClicked', confirmAndSendData);
+        
         return () => {
             tg.offEvent('mainButtonClicked', confirmAndSendData);
         };
-    }, [tg, confirmAndSendData]);
+    }, [tg, selectedTimesheets]);
 
     return (
         <div className='timesheet_list'>
