@@ -30,9 +30,9 @@ const TimesheetList = () => {
     useEffect(() => {
         if (selectedTimesheet) {
             confirmAndSendData(selectedTimesheet);
-            setSelectedTimesheet(null); // Reset selectedTimesheet after sending data
+            setSelectedTimesheet(null);
         }
-    }, [selectedTimesheet]);
+    }, [selectedTimesheet, confirmAndSendData]);
 
     return (
         <div className='timesheet_list'>
