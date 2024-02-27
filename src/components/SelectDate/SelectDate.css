@@ -3,8 +3,23 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
   }
   
+  .days-btn{
+    display: flex;
+    margin-top: 1%;
+  }
+
+  .day-btn{
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color); 
+    cursor: pointer;
+  }
+
   .input-container {
     text-align: center;
   }
@@ -17,8 +32,9 @@
   }
   
   .buttonYesterday{
-    color: wheat;
-    background: red;
+    color: black;
+    background: orange;
+    margin: 5px;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -27,8 +43,8 @@
   .buttonToday{
     color: wheat;
     background: green;
+    margin: 5px;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    float: inline-end;
   }
