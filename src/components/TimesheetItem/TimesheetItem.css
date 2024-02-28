@@ -19,7 +19,6 @@
 .timesheet_info{
     display: flex;
     flex-direction: column;
-    margin-right: 10px;
 }
 
 .timesheet_checkbox{
