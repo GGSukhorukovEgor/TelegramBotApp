@@ -19,11 +19,11 @@
 .timesheet_info{
     display: flex;
     flex-direction: column;
+    margin-right: 10px;
 }
 
 .timesheet_checkbox{
     display: flex;
-    margin-left: 10px;
 }
 
 input[type="checkbox"] {
