@@ -10,6 +10,7 @@ const TimesheetList = () => {
     const [timesheetList, setTimesheetList] = useState([]);
     const [selectedTimesheets, setSelectedTimesheets] = useState([]);
     const [date, setDate] = useState(undefined);
+    const [numberOfHours, setNumberOfHours] = useState(0);
 
     useEffect(() => {
         tg.ready();
@@ -36,6 +37,11 @@ const TimesheetList = () => {
         let data = JSON.parse(timesheetsJson);
         setDate(data.date);
         setTimesheetList(data.timesheets);
+        let countHours = 0;
+        data.timesheets.forEach(element => {
+            countHours = countHours + element.duration;
+        });
+        setNumberOfHours(countHours);
     }, [searchParams]);
 
     const handleCheckboxChange = (timesheet) => {
@@ -67,7 +73,8 @@ const TimesheetList = () => {
     return (
         <div className='timesheet_list'>
             <div className='timesheet_heder'>
-                Списания времени за <b>{date}</b>
+                <p>Списания времени за <b>{date}</b></p>
+                <p>Всего <b>{numberOfHours}</b> часов</p>
             </div>
             {timesheetList.map(item => (
                 <TimesheetItem
