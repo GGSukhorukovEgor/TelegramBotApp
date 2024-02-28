@@ -26,7 +26,7 @@ const SelectDate = () => {
 
     const generateDates = () => {
         const dates = [];
-        for (let i = 7; i > 1; i--) {
+        for (let i = 8; i > 1; i--) {
             const today = new Date();
             const fiveDaysAgo = new Date(today);
             fiveDaysAgo.setDate(today.getDate() - i);
