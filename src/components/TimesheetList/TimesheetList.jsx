@@ -47,7 +47,7 @@ const TimesheetList = () => {
 
     useEffect(() => {
         const confirmAndSendData = () => {
-            const isConfirmed = window.confirm('Вы уверены, что хотите удалить выбранные timesheets?');
+            const isConfirmed = window.confirm('Вы уверены, что хотите удалить выбранные списания времени?');
             if (isConfirmed) {
                 tg.sendData(JSON.stringify(selectedTimesheets));
                 setSelectedTimesheets([]);
@@ -65,7 +65,6 @@ const TimesheetList = () => {
         <div className='timesheet_list'>
             {timesheetList.map(item => (
                 <TimesheetItem
-                    key={item.id}
                     timesheet={item}
                     isChecked={selectedTimesheets.includes(item)}
                     handleCheckboxChange={() => handleCheckboxChange(item)}
