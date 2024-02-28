@@ -9,6 +9,7 @@ const TimesheetList = () => {
     const [searchParams] = useSearchParams();
     const [timesheetList, setTimesheetList] = useState([]);
     const [selectedTimesheets, setSelectedTimesheets] = useState([]);
+    const [date, setDate] = useState(undefined);
 
     useEffect(() => {
         tg.ready();
@@ -31,8 +32,10 @@ const TimesheetList = () => {
       }
 
     useEffect(() => {
-        let timesheetsJson = new TextDecoder().decode(base64ToBytes(searchParams.get("data")))
-        setTimesheetList(JSON.parse(timesheetsJson));
+        let timesheetsJson = new TextDecoder().decode(base64ToBytes(searchParams.get("data")));
+        let data = JSON.parse(timesheetsJson);
+        setDate(data.date);
+        setTimesheetList(data.timesheets);
     }, [searchParams]);
 
     const handleCheckboxChange = (timesheet) => {
@@ -63,6 +66,9 @@ const TimesheetList = () => {
 
     return (
         <div className='timesheet_list'>
+            <div className='timesheet_heder'>
+                Списания времени за <b>{date}</b>
+            </div>
             {timesheetList.map(item => (
                 <TimesheetItem
                     timesheet={item}
