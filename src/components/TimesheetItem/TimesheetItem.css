@@ -23,6 +23,7 @@
 
 .timesheet_checkbox{
     display: flex;
+    margin-left: 10px;
 }
 
 input[type="checkbox"] {
